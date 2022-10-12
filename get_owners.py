@@ -5,9 +5,9 @@ import time
 import datetime
 
 now = datetime.datetime.now()
-owners_ethereum = './owners/owners_bdp_ethereum_' + now.strftime('%Y%m%d_%H%M%S') + '.csv'
+owners = 'owners_' + now.strftime('%Y%m%d_%H%M%S') + '.csv'
 
-with open(owners_ethereum, 'w') as f:
+with open(owners, 'w') as f:
     writer = csv.writer(f)
     writer.writerow(['name','username','address','created_date'])
 
@@ -15,7 +15,7 @@ headers = {
         'User-Agent':'Mozilla/5.0'
 }
 
-with open('assets_bdp_ethereum.csv', 'r') as f:
+with open('assets', 'r') as f:
     reader = csv.reader(f)
     header = next(reader)
 
@@ -40,7 +40,7 @@ with open('assets_bdp_ethereum.csv', 'r') as f:
         address = owners_dict['owner']['address']
         created_date = owners_dict['created_date']
 
-        with open(owners_ethereum, 'a', newline='') as f:
+        with open(owners, 'a', newline='') as f:
             writer = csv.writer(f)
             writer.writerow([name, username, address, created_date])
 
