@@ -15,7 +15,7 @@ headers = {
         'User-Agent':'Mozilla/5.0'
 }
 
-with open('assets', 'r') as f:
+with open('assets.csv', 'r') as f:
     reader = csv.reader(f)
     header = next(reader)
 
